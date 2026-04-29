@@ -17,10 +17,10 @@ export default function Nav(){
             <nav>
                 
                 <button onClick={()=>Navigate("/")}>
-                    <img src={ishome?"nav/home_fill.png":"nav/home.png"}/>
+                    <img src={ishome?"ikoner/home_fill.png":"ikoner/home.png"}/>
                 </button>
                 <button onClick={()=>Navigate("/quiz")}>
-                    <img src={ishome?"nav/quiz.png":"nav/quiz_fill.png"}/>
+                    <img src={ishome?"ikoner/quiz.png":"ikoner/quiz_fill.png"}/>
                 </button>
             </nav>
         </div>

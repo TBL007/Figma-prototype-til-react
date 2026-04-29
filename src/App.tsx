@@ -7,17 +7,19 @@ import "./styles/index.css"
 const Texts  = [
   {
     tittle:"Lorem ipsum",
-    text:"Lorem ipsum"
+    text:"Lorem ipsum",
+    id:0
   },
   {
     tittle:"Lorem ipsum",
-    text:"Lorem ipsum"
+    text:"Lorem ipsum",
+    id:1
   }
 ]
 
 const funfacts = [
-    "Lorem ipsum", 
-    "dolor"
+    {text:"Lorem ipsum", id:0 },
+    {text:"dolor",id:1}
 ]
 export default function App() {
   const [DisplayFunfacts, setDisplayfunfacts] = useState(false)
@@ -28,8 +30,11 @@ export default function App() {
       } else{
       return(
           <div className="fun-facts">
+            <div className="fun-facts-top">
               <h1>Fun facts</h1>
-              {funfacts.map(funfact=>(<p>{funfact}</p>))}
+              <button onClick={()=>setDisplayfunfacts(false)} className="close"><img src="ikoner/close.png" width={32}/></button>
+              </div>
+              {funfacts.map(funfact=>(<p key={funfact.id}>{funfact.text}</p>))}
           </div>
       )}
   }
@@ -39,7 +44,7 @@ export default function App() {
       <img className="hypsilophodon" src="bilder/Hypsilophodon.jpg"/>
       <div className="texts">
         {Texts.map(text=>(
-          <div className="text">
+          <div key={text.id} className="text">
             <h2>{text.tittle}</h2>
             <div ><p>{text.text}</p></div>
           </div>))}

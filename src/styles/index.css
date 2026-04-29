@@ -1,0 +1,258 @@
+.main {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+body {
+
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  background: #79AE6F;
+
+}
+
+.hypsilophodon {
+  width: 442px;
+  height: 241px;
+  aspect-ratio: 442/241;
+}
+
+.text {
+  display: flex;
+  flex-direction: column;
+  width: 394px;
+  align-items: center;
+}
+
+.text h2 {
+  color: #F2EDC2;
+  text-align: center;
+  font-family: "Dino Roar";
+  font-size: 36px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.text div {
+  width: 388px;
+  height: 172px;
+  background: #346739;
+  display: flex;
+  justify-content: center;
+
+}
+
+.text p {
+  display: flex;
+  width: 313px;
+  height: 153px;
+  flex-direction: column;
+  justify-content: center;
+  color: #FFF;
+  text-align: center;
+  font-family: Bactosaurus;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.Fun-facts-button {
+  width: 313px;
+  height: 41px;
+  background: #346739;
+  border: 0;
+  margin-top: 40px;
+  margin-bottom: 120px;
+  color: #FFF;
+  text-align: center;
+  font-family: "Kitty Rawr";
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.fun-facts {
+  display: flex;
+  position: fixed;
+  flex-direction: column;
+  align-items: center;
+  width: 380px;
+  height: 478px;
+  border: 2px solid #9FCB98;
+  background: #346739;
+  margin-top: 10%;
+
+}
+
+.fun-facts-top {
+  display: flex;
+  align-self: center;
+  justify-content: right;
+  width: 100%;
+  flex-direction: row;
+}
+
+.fun-facts h1 {
+  width: 312px;
+  height: 39px;
+  color: #F2EDC2;
+  text-align: center;
+  font-family: "Dino Roar";
+  font-size: 36px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  align-self: center;
+}
+
+.fun-facts p {
+
+  color: #FFF;
+  text-align: center;
+  font-family: Bactosaurus;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.close {
+  display: flex;
+  position: relative;
+  align-self: flex-start;
+  justify-self: baseline;
+  background: none;
+  border: none;
+  justify-content: flex-end;
+  align-items: first baseline;
+  width: 32px;
+  height: 32px;
+}
+
+.quiz-start {
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.quiz-start button {
+  border: none;
+  height: 20%;
+  width: 100%;
+  background: linear-gradient(#346739, #79AE6F);
+  color: #FFF;
+  text-align: center;
+  font-family: Bactosaurus;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.question {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.question-header {
+  width: 401px;
+  height: 108px;
+  background: #346739;
+  border-radius: 0 0 10px 10px;
+}
+
+.question-count {
+  display:flex;
+  justify-content: space-between;
+  width: fit-content;
+  justify-self: center;
+}
+.question-count button {
+ background:#346739;
+ border: none;
+ font-size: 20;
+ color:#F2EDC2
+}
+.question-header h1 {
+  color: #FFF;
+  text-align: center;
+  font-family: "Kitty Rawr";
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+
+}
+
+.question-header h3 {
+  color: #FFF;
+  text-align: center;
+  font-family: "Kitty Rawr";
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+
+}
+
+.question-buttons {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 360px;
+  height: 189px;
+
+}
+
+.question-buttons button {
+  width: 60px;
+  height: 80px;
+  background: #346739;
+  border: solid #9FCB98 2px;
+  border-radius: 10px;
+  color: #FFF;
+  text-align: center;
+  font-family: Bactosaurus;
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.correct {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.correct button {
+  width: 241px;
+  height: 81px;
+  background: #346739;
+  border: none;
+  color: #FFF;
+  text-align: center;
+  font-family: Bactosaurus;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.correct h2 {
+  color: #FFF;
+  text-align: center;
+  font-family: "Kitty Rawr";
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
