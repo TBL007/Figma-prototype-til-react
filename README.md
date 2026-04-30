@@ -14,4 +14,4 @@ npm run dev
 * øving
 * <span style="color:green">navigation i questions
 * flere dinosaurer
-* <span style="color:yellow">poeng
+* <span style="color:green">poeng

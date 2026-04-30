@@ -137,8 +137,9 @@ body {
 .quiz-start {
   display: flex;
   align-content: center;
-  justify-content: center;
+  
   height: 100vh;
+  flex-direction: column;
 }
 
 .quiz-start button {
@@ -146,6 +147,16 @@ body {
   height: 20%;
   width: 100%;
   background: linear-gradient(#346739, #79AE6F);
+  color: #FFF;
+  text-align: center;
+  font-family: Bactosaurus;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.quiz-start h1{
   color: #FFF;
   text-align: center;
   font-family: Bactosaurus;

@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { Route, Routes, useNavigate } from "react-router-dom"
 
 const Questions = [ // svar er liste basert index starter på 0
@@ -8,7 +8,8 @@ const Questions = [ // svar er liste basert index starter på 0
         svaralternativer: [
             "10 km/t", "20km/t", "30km/t", "40km/t"
         ],
-        svar: 3
+        svar: 3,
+        answered: false
     },
     {
         id: 2,
@@ -16,7 +17,8 @@ const Questions = [ // svar er liste basert index starter på 0
         svaralternativer: [
             "nei", "ja", "nja", "er ikke sikker"
         ],
-        svar: 1
+        svar: 1,
+        answered: false
     },
     {
         id: 3,
@@ -24,28 +26,47 @@ const Questions = [ // svar er liste basert index starter på 0
         svaralternativer: [
             "riktig", "feil", "feil", "feil"
         ],
-        svar: 0
+        svar: 0,
+        answered: false
     }
 ]
 
-export function Quiz() {
+export function Quiz({setPoints}:{setPoints:Function}) {
     const Navigate = useNavigate()
+    const handleStart = () => {
+        for (const question of Questions){
+            question.answered=false
+        }
+        setPoints(0)
+        Navigate("/quiz-1")
+
+    }
     return (
         <div className="quiz-start">
-            <button onClick={() => Navigate("/quiz-1")}>Start quiz</button>
+            <button onClick={handleStart}>Start quiz</button>
         </div>
     )
 }
 
-function Quiz_component({ id }: { id: number }) {
+function Quiz_component({ id, setPoints, points }: { id: number, points: number, setPoints: Function }) {
 
     const navigate = useNavigate()
     const question = Questions[id - 1]
     const [displaycorrect, setDisplayCorrect] = useState(false)
+    const [correct, setCorrect] = useState(false)
+    
     const handleAnswer = (index: Number) => {
+        if (question.answered) return;
+
         if (index === question.svar) {
+            setCorrect(true)
             setDisplayCorrect(true)
+            setPoints(points + 1)
+        } else {
+            setDisplayCorrect(true)
+            setCorrect(false)
         }
+        question.answered = true
     }
     const manualNav = (back: boolean) => {
         if (question.id === 1 && back) return;
@@ -62,18 +83,28 @@ function Quiz_component({ id }: { id: number }) {
             if (question.id < Questions.length) {
                 navigate(`/quiz-${question.id + 1}`);
             } else {
-                navigate("/");
+                navigate("/quiz-done");
             }
         }
 
         if (displaycorrect)
-            return (
-                <div className="correct">
-                    <h2>Correct</h2>
-                    <button onClick={handleNav}>Next</button>
-                </div>
+            if (correct) {
+                return (
+                    <div className="correct">
+                        <h2>Correct</h2>
+                        <button onClick={handleNav}>Next</button>
+                    </div>
 
-            )
+                )
+            } else {
+                return (
+                    <div className="correct">
+                        <h2>Wrong</h2>
+                        <button onClick={handleNav}>Next</button>
+                    </div>
+
+                )
+            }
     }
 
     return (
@@ -99,17 +130,30 @@ function Quiz_component({ id }: { id: number }) {
 }
 
 export function Quiz_Routes() {
-    const order = () => {
-        Questions.sort(() => Math.random() - 0.5)
-        for (const question of Questions) {
-            question.id = Questions.indexOf(question) + 1
-        }
+    const [points, setPoints] = useState(0)
+    useEffect(() => {
+        const order = () => {
+            Questions.sort(() => Math.random() - 0.5)
+            for (const question of Questions) {
+                question.id = Questions.indexOf(question) + 1
+            }
 
+        }
+        order()
+    },[])
+    function Quiz_done() {
+        return (
+            <div className="quiz-start">
+                <h1> Gratulere du greide</h1>
+                <h1> {points}/{Questions.length}</h1>
+            </div>
+        )
     }
-    order()
     return (
         <Routes>
-            {Questions.map(question => (<Route key={question.id} path={`/quiz-${question.id}`} element={<Quiz_component id={question.id} />} />))}
+            <Route path="/quiz" element={<Quiz setPoints={setPoints} />} />
+            <Route path="/quiz-done" element={<Quiz_done />} />
+            {Questions.map(question => (<Route key={question.id} path={`/quiz-${question.id}`} element={<Quiz_component points={points} setPoints={setPoints} id={question.id} />} />))}
         </Routes>
     )
 }
