@@ -1,28 +1,49 @@
 .main {
   display: flex;
   align-items: center;
+  justify-content: center;
   flex-direction: column;
+  
+  width:100%;
 }
-
+#root{
+  background:#79AE6F;
+  height: fit-content;
+  width: 100%;
+}
 body {
-
+  display:flex;
+  
   margin: 0;
   padding: 0;
   height: 100vh;
-  background: #79AE6F;
-
+  width:100%;
+  background: #346739;
+  
 }
 
+@media (min-width: 900px) and (orientation: landscape) {
+  body{
+    flex-direction: column;
+    align-items: center;
+    
+  }
+  #root{
+  width: 100%;
+}
+}
+
+
 .hypsilophodon {
-  width: 442px;
-  height: 241px;
+  width: 100%;
+  
   aspect-ratio: 442/241;
 }
 
 .text {
   display: flex;
   flex-direction: column;
-  width: 394px;
+  width: 100%;
   align-items: center;
 }
 
@@ -30,14 +51,14 @@ body {
   color: #F2EDC2;
   text-align: center;
   font-family: "Dino Roar";
-  font-size: 36px;
+  font-size: 2.5rem;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
 }
 
 .text div {
-  width: 388px;
+  width: 100%;
   height: 172px;
   background: #346739;
   display: flex;
@@ -54,15 +75,15 @@ body {
   color: #FFF;
   text-align: center;
   font-family: Bactosaurus;
-  font-size: 16px;
+  font-size: 1.5 rem;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
 }
 
 .Fun-facts-button {
-  width: 313px;
-  height: 41px;
+  width: 80%;
+  height: 5vh;
   background: #346739;
   border: 0;
   margin-top: 40px;
@@ -81,11 +102,11 @@ body {
   position: fixed;
   flex-direction: column;
   align-items: center;
-  width: 380px;
+  width: 90%;
   height: 478px;
   border: 2px solid #9FCB98;
   background: #346739;
-  margin-top: 10%;
+  margin-top: -40vh;
 
 }
 
@@ -137,7 +158,8 @@ body {
 .quiz-start {
   display: flex;
   align-content: center;
-  
+  width: 100vw;
+
   height: 100vh;
   flex-direction: column;
 }
@@ -168,13 +190,16 @@ body {
 
 .question {
   display: flex;
-  justify-content: center;
+  
   align-items: center;
   flex-direction: column;
+  width:100%;
+  height: 100vh;
+  background: linear-gradient(#79AE6F,#346739);
 }
 
 .question-header {
-  width: 401px;
+  width: 96%;
   height: 108px;
   background: #346739;
   border-radius: 0 0 10px 10px;
